@@ -1,4 +1,7 @@
 package com.ifs.prova2web.repository;
 
-public interface TorneioRepository extends org.springframework.data.jpa.repository.JpaRepository<com.ifs.prova2web.model.Torneio, java.lang.Integer> {
+import com.ifs.prova2web.model.Torneio;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TorneioRepository extends JpaRepository<Torneio, Integer> {
 }

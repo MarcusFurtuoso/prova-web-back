@@ -1,2 +1,4 @@
-package com.ifs.prova2web.service;public interface TorneioService {
+package com.ifs.prova2web.service;
+
+public interface TorneioService {
 }
