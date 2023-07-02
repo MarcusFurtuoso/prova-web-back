@@ -1,6 +1,7 @@
 package com.ifs.prova2web.controller;
 
 import com.ifs.prova2web.dto.UsuarioDTO;
+import com.ifs.prova2web.form.LoginForm;
 import com.ifs.prova2web.form.UsuarioUpdate;
 import com.ifs.prova2web.model.Categoria;
 import com.ifs.prova2web.model.Usuario;
@@ -31,13 +32,15 @@ public class UsuarioController {
         return service.cadastrarUsuario(usuario);
     }
 
-    public void login() {
-
-    }
-    @GetMapping("/get")
+    @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
-    public Usuario getUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-        return service.getUsuario(usuarioDTO);
+    public UsuarioDTO login(@RequestBody LoginForm loginForm) {
+        return service.login(loginForm);
+    }
+    @GetMapping("/get/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UsuarioDTO getUsuario(@PathVariable Integer id) {
+        return service.getUsuario(id);
     }
 
     @DeleteMapping("/{id}")

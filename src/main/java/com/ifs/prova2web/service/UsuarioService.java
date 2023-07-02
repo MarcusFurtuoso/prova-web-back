@@ -1,6 +1,7 @@
 package com.ifs.prova2web.service;
 
 import com.ifs.prova2web.dto.UsuarioDTO;
+import com.ifs.prova2web.form.LoginForm;
 import com.ifs.prova2web.form.UsuarioUpdate;
 import com.ifs.prova2web.model.Usuario;
 
@@ -12,9 +13,9 @@ public interface UsuarioService {
 
     List<UsuarioDTO> consultarTodos();
 
-    void login();
+    UsuarioDTO login(LoginForm loginForm);
 
-    Usuario getUsuario(UsuarioDTO usuarioDTO);
+    UsuarioDTO getUsuario(int id);
 
     void excluir(int id);
 

@@ -1,6 +1,7 @@
 package com.ifs.prova2web.service.implementation;
 
 import com.ifs.prova2web.dto.UsuarioDTO;
+import com.ifs.prova2web.form.LoginForm;
 import com.ifs.prova2web.form.UsuarioUpdate;
 import com.ifs.prova2web.model.Usuario;
 import com.ifs.prova2web.repository.UsuarioRepository;
@@ -35,14 +36,14 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void login() {
-
+    public UsuarioDTO login(LoginForm loginForm) {
+        return null;
     }
 
     @Override
-    public Usuario getUsuario(UsuarioDTO usuarioDTO) {
-        usuarioDTO = usuarioRepository.findByLogin(usuarioDTO.getLogin());
-        return usuarioRepository.findById(usuarioDTO.getId()).get();
+    public UsuarioDTO getUsuario(int id) {
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow();
+        return UsuarioDTO.fromUsuario(usuario);
     }
 
     @Override

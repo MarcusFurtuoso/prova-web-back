@@ -24,8 +24,10 @@ public class CategoriaServiceImpl {
     @Autowired
     TorneioRepository torneioRepository;
 
-    public List<Categoria> listarCategorias() {
-        return categoriaRepository.findAll();
+    CategoriaForm categoriaForm;
+
+    public List<CategoriaDTO> listarCategorias() {
+        return categoriaRepository.findAll().stream().map(CategoriaDTO::fromCategoria).toList();
     }
 
     public CategoriaDTO cadastrarCategoria(CategoriaForm categoriaForm) {
