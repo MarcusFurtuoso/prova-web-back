@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/api/usuarios")
 public class UsuarioController {
 
     @Autowired
@@ -26,9 +27,9 @@ public class UsuarioController {
         return service.consultarTodos();
     }
 
-    @PostMapping
+    @PostMapping("/cadastro")
     @ResponseStatus(HttpStatus.CREATED)
-    public UsuarioDTO cadastrarTorneio(@RequestBody Usuario usuario) {
+    public UsuarioDTO cadastrarUsuario(@RequestBody Usuario usuario) {
         return service.cadastrarUsuario(usuario);
     }
 
@@ -37,6 +38,7 @@ public class UsuarioController {
     public UsuarioDTO login(@RequestBody LoginForm loginForm) {
         return service.login(loginForm);
     }
+
     @GetMapping("/get/{id}")
     @ResponseStatus(HttpStatus.OK)
     public UsuarioDTO getUsuario(@PathVariable Integer id) {

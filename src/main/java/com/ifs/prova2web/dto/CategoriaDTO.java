@@ -1,7 +1,6 @@
 package com.ifs.prova2web.dto;
 
 import com.ifs.prova2web.model.Categoria;
-import com.ifs.prova2web.model.Inscricao;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

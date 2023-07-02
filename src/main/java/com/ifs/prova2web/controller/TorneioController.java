@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/torneio")
 public class TorneioController {
@@ -20,7 +20,6 @@ public class TorneioController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<TorneioDTO> getAll() {
-
         return service.listarTorneios();
     }
 
@@ -28,6 +27,18 @@ public class TorneioController {
     @ResponseStatus(HttpStatus.CREATED)
     public Torneio cadastrarTorneio(@RequestBody Torneio torneio) {
         return service.cadastrarTorneio(torneio);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void exclirTorneio(@PathVariable Integer id) {
+        service.excluirTorneio(id);
+    }
+
+    @GetMapping("/getById/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public TorneioDTO getTorneioById(@PathVariable Integer id) {
+        return service.findTorneioById(id);
     }
 
 }

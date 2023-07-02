@@ -1,14 +1,11 @@
 package com.ifs.prova2web.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ifs.prova2web.model.Inscricao;
-import com.ifs.prova2web.model.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
 @Data
 @Builder
 @NoArgsConstructor

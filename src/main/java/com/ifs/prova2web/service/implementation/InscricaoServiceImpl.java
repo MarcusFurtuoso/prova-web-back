@@ -26,8 +26,6 @@ public class InscricaoServiceImpl {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-
-
     public List<InscricaoDTO> listarInscricoes() {
         return inscricaoRepository.findAll().stream().map(InscricaoDTO::fromInscricao).toList();
     }

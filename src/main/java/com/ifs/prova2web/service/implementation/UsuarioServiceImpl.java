@@ -1,7 +1,6 @@
 package com.ifs.prova2web.service.implementation;
 
 import com.ifs.prova2web.dto.UsuarioDTO;
-import com.ifs.prova2web.exception.ExceptionControllerHandler;
 import com.ifs.prova2web.exception.LoginException;
 import com.ifs.prova2web.form.LoginForm;
 import com.ifs.prova2web.form.UsuarioUpdate;
@@ -23,7 +22,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public UsuarioDTO cadastrarUsuario(Usuario usuario) {
-
         Usuario usuario1 = usuarioRepository.save(usuario);
         return UsuarioDTO.fromUsuario(usuario1);
     }

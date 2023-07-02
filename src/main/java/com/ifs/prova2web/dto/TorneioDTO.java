@@ -28,6 +28,7 @@ public class TorneioDTO {
                 .stream()
                 .map(categoria -> new CategoriaModel(categoria.getId(), categoria.getNome()))
                 .toList();
+
         return TorneioDTO.builder()
                 .id(torneio.getId())
                 .nome(torneio.getNome())
