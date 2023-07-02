@@ -1,6 +1,8 @@
 package com.ifs.prova2web.service.implementation;
 
 import com.ifs.prova2web.dto.UsuarioDTO;
+import com.ifs.prova2web.exception.ExceptionControllerHandler;
+import com.ifs.prova2web.exception.LoginException;
 import com.ifs.prova2web.form.LoginForm;
 import com.ifs.prova2web.form.UsuarioUpdate;
 import com.ifs.prova2web.model.Usuario;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
@@ -37,7 +40,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public UsuarioDTO login(LoginForm loginForm) {
-        return null;
+        Optional<Usuario> usuOptional = usuarioRepository.findByLogin(loginForm.login());
+        if(usuOptional.isEmpty()) {
+            throw new LoginException("Login não cadastrado!");
+        }
+        if(!loginForm.senha().equals(usuOptional.get().getSenha())) {
+            throw new LoginException("Senha inválida!");
+        }
+        return UsuarioDTO.fromUsuario(usuOptional.get());
     }
 
     @Override
