@@ -35,7 +35,7 @@ public class TorneioController {
         service.excluirTorneio(id);
     }
 
-    @GetMapping("/getById/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public TorneioDTO getTorneioById(@PathVariable Integer id) {
         return service.findTorneioById(id);

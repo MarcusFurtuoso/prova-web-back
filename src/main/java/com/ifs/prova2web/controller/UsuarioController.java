@@ -27,6 +27,12 @@ public class UsuarioController {
         return service.consultarTodos();
     }
 
+    @GetMapping("/{userId}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<UsuarioDTO> getAllByUsuario(@PathVariable Integer userId) {
+        return service.consultarTodosDisponiveisParaUmUsuario(userId);
+    }
+
     @PostMapping("/cadastro")
     @ResponseStatus(HttpStatus.CREATED)
     public UsuarioDTO cadastrarUsuario(@RequestBody Usuario usuario) {

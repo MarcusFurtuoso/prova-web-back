@@ -67,4 +67,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         return usuarioRepository.save(usuario);
     }
+
+    public List<UsuarioDTO> consultarTodosDisponiveisParaUmUsuario(Integer userId) {
+        List<UsuarioDTO> ls = new ArrayList<>();
+        List lsUsuarios =  (List<Usuario>)usuarioRepository.findAllByUsuario(userId);
+        lsUsuarios.forEach(usuarios -> {
+            ls.add(UsuarioDTO.fromUsuario((Usuario) usuarios));
+        });
+        return  ls;
+    }
+
 }

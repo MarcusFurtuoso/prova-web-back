@@ -31,6 +31,7 @@ public class InscricaoServiceImpl {
     }
 
     public InscricaoDTO cadastrarInscricao(InscricaoForm inscricaoForm) {
+        System.out.println("data" + inscricaoForm);
         Categoria categoria = categoriaRepository.findById(inscricaoForm.categoriaId()).orElseThrow();
         Usuario usuario1 = usuarioRepository.findById(inscricaoForm.usuario1Id()).orElseThrow();
         Usuario usuario2 = usuarioRepository.findById(inscricaoForm.usuario2Id()).orElseThrow();

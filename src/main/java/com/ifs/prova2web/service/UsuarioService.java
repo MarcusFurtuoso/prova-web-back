@@ -19,6 +19,8 @@ public interface UsuarioService {
 
     void excluir(int id);
 
+    public List<UsuarioDTO> consultarTodosDisponiveisParaUmUsuario(Integer userId);
+
     Usuario update(Integer id, UsuarioUpdate usuario);
 
 
